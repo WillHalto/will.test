@@ -1,1 +1,4 @@
-
+changelog:
+  categories:
+    - title: test
+      labels: *
