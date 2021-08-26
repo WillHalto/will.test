@@ -1,4 +1,4 @@
 changelog:
   categories:
     - title: test
-      labels: *
+      labels: "*"
