@@ -1,0 +1,23 @@
+# This is a basic workflow that is manually triggered
+
+name: Check Releases
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  check-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checks releases for drafts
+        uses: actions/github-script@v4.0.2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const {data} = await github.request(`GET /repos/${{ github.repository }}/releases`);
+            if (data.some(release => release.draft)) {
+              console.log('Draft Found');
+            }
