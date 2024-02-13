@@ -1,3 +1,3 @@
 # Test
-Test file
+Test file.
 
